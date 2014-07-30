@@ -127,7 +127,7 @@ public class AirlineServlet extends HttpServlet
         if (thisairline==null) {
             thisairline=new Airline();
             thisairline.setName(tokenskey[0]);
-            System.out.print("just created an airline");
+            //System.out.print("just created an airline");
         }
 
         PrintWriter pw = response.getWriter();

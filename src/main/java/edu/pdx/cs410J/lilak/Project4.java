@@ -166,6 +166,13 @@ public class Project4 {
         }
 
         for (String arg : args) {
+            if (arg.contentEquals("-README")) {
+                printreadme();
+                System.exit(0);
+            }
+        }
+
+        for (String arg : args) {
             if (portnext==true) {
                 portnext=false;
                 portString=arg;
