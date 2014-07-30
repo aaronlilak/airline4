@@ -144,6 +144,7 @@ public class Project4 {
         return;
     }
 
+    /** main for project4 implementation....this handles the parsing and sets up the HTTP calls*/
     public static void main(String... args) {
         String hostName = null;
         String portString = null;
@@ -352,6 +353,7 @@ public class Project4 {
         }
     }
 
+    /** error is a method to return an error code message */
     private static void error( String message )
     {
         PrintStream err = System.err;

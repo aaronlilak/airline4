@@ -12,13 +12,22 @@ import java.util.Map;
 import edu.pdx.cs410J.lilak.Airline;
 import java.net.HttpURLConnection;
 
+/**AirlineServlet is the class to enable the servlet used in project4. It handles the get and post implementations for REST functionality */
+
 public class AirlineServlet extends HttpServlet
 {
     private final Map<String, String> data = new HashMap<String, String>();
 
+    /**thisairline is a static airline class used by the servlet....it is initialized later */
     public static Airline thisairline;
 
-
+    /**doGet is implementation of the servlet HTTP get method...I have implemented airline functionality within this for query of
+     * airline from HTTP access, etc..
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
     {
@@ -117,6 +126,12 @@ public class AirlineServlet extends HttpServlet
         }
     }
 
+    /**doPost is implementation for post functionality. It allows for a servlet to create or query airline database depending upon usage.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
     {
@@ -282,6 +297,7 @@ public class AirlineServlet extends HttpServlet
         response.setStatus( HttpServletResponse.SC_OK);
     }
 
+    /**missingRequiredParameter is a method to print out on servlet side a message of a missing parameter */
     private void missingRequiredParameter( HttpServletResponse response, String key )
         throws IOException
     {
@@ -292,6 +308,7 @@ public class AirlineServlet extends HttpServlet
         response.setStatus( HttpServletResponse.SC_PRECONDITION_FAILED );
     }
 
+    /**writevalue is a servlet method to create a key value pair */
     private void writeValue( String key, HttpServletResponse response ) throws IOException
     {
         String value = this.data.get(key);
@@ -319,6 +336,7 @@ public class AirlineServlet extends HttpServlet
         response.setStatus( HttpServletResponse.SC_OK );
     }
 
+    /**getParameter is method to allow access to parameters of the HttpServletRequest*/
     private String getParameter(String name, HttpServletRequest request) {
       String value = request.getParameter(name);
       if (value == null || "".equals(value)) {
